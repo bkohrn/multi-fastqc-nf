@@ -1,0 +1,4 @@
+work/
+*.code-workspace
+.nextflow
+.nextflow.log*
