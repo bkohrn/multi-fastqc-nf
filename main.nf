@@ -38,7 +38,7 @@ if (params.help || params.input == null || params.output == null){
 
 // Default options listed here
 params.suffix = ".fastq.gz"
-
+params.publish_fastqs = "false"
 /////////////////////
 // DEFINE FUNCTIONS /
 /////////////////////
@@ -51,9 +51,15 @@ process fastQC {
 
   input:
     tuple val(name), file(reads)
-
+  
   output:
     file "*_fastqc.zip"
+
+  publishDir "${params.output}/fastqc/", 
+    mode: "copy", 
+    overwrite: true, 
+    pattern: "*_fastqc.{html,zip}"
+    enabled: ${params.publish_fastqs}
 
 """
 #!/bin/bash
