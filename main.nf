@@ -58,7 +58,7 @@ process fastQC {
   publishDir "${params.output}/fastqc/", 
     mode: "copy", 
     overwrite: true, 
-    pattern: "*_fastqc.{html,zip}"
+    pattern: "*_fastqc.{html,zip}",
     enabled: ${params.publish_fastqcs}
 
 """
