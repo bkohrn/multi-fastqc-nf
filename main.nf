@@ -38,7 +38,7 @@ if (params.help || params.input == null || params.output == null){
 
 // Default options listed here
 params.suffix = ".fastq.gz"
-params.publish_fastqs = "false"
+params.publish_fastqcs = "false"
 /////////////////////
 // DEFINE FUNCTIONS /
 /////////////////////
@@ -59,7 +59,7 @@ process fastQC {
     mode: "copy", 
     overwrite: true, 
     pattern: "*_fastqc.{html,zip}"
-    enabled: ${params.publish_fastqs}
+    enabled: ${params.publish_fastqcs}
 
 """
 #!/bin/bash
