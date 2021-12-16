@@ -60,7 +60,7 @@ process fastQC {
     mode: "copy", 
     overwrite: true, 
     pattern: "*_fastqc.{html,zip}", 
-    enabled: "${params.publish_fastqcs}"
+    enabled: "${params.publish_fastqcs}" == "true"
 
 """
 #!/bin/bash
